@@ -1,4 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-static/* linguist-vendored
-html/* linguist-vendored
+*.py linguist-detectable=true
+*.js linguist-detectable=true
+*.html linguist-detectable=false
+*.css linguist-detectable=false
