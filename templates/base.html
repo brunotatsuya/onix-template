@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+    <head>
+        <title>Onix</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+        <!-- Poppins Font -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+        <!-- Font-awesome CSS -->
+        {{ fontawesome_html() }}
+    </head>
+    <body>
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div id="hidder" class="btn btn-warning btn-circle"><i class="fas fa-bars"></i></div>
+            <!-- Animated background area -->
+            <ul class="circles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+            <!-- Actual sidebar container -->
+            <div style="position:absolute">
+                <ul>
+                    <li><a href="/">
+                        <span class="site-title">Onix</span>
+                    </a></li>
+                    {% if current_user.is_authenticated %}
+                    <li><a href="/">
+                        <span class="sidebar-btn-icon"><i class="fas fa-user"></i></span>
+                        <span class="sidebar-btn-title">{{current_user.email}}</span>
+                    </a></li>
+                    {% else %}
+                    <li><a href="/login">
+                        <span class="sidebar-btn-icon"><i class="fas fa-user"></i></span>
+                        <span class="sidebar-btn-title">Fazer login</span>
+                    </a></li>
+                    {% endif %}
+                    <li><a href="#">
+                        <span class="sidebar-btn-icon"><i class="fas fa-bars"></i></span>
+                        <span class="sidebar-btn-title">Categoria 1</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span class="sidebar-btn-icon"><i class="fas fa-bars"></i></span>
+                        <span class="sidebar-btn-title">Categoria 2</span>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Content -->
+        <div id="content">
+            <!-- Topbar -->
+            <div id="topbar"></div>
+            <!-- Principal content -->
+            <div id="principal-content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+    <!-- JQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>  
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> 
+    <!-- Responsiveness JS -->
+    <script src="{{ url_for('static',filename='js/responsiveness.js') }}"></script>  
+</html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="login-form">
+    <h2>Fazer login</h2>
+    <br>
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input type="email" name="email" class="form-control" id="email-input" placeholder="Enter email"><br>
+            <input type="password" name="password" class="form-control" id="password-input" placeholder="Enter password">
+            <small class="form-text text-muted"><a href="/recover">Esqueceu a senha?</a></small><br><br>
+            <button type="submit" class="btn btn-primary btn-block">Login</button><br>
+            <div class="btn btn-info btn-block" onclick="window.location.href='/register'">Criar conta</div>
+        </div>
+    </form>
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+[default]
+TITLE = 'Onix'
+SECRET_KEY = '22c3ba84-40d0-11eb-b378-0242ac130002'
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+MODULES = [
+    'extensions.style:init_app',
+    'extensions.database:init_app',
+    'extensions.commands:init_app',
+    'extensions.authentication:init_app',
+    'engine.models:',
+    'engine.routes:init_app'
+]
+
+[development]
+SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:1217@localhost/onix'
+
+[testing]
+
+[production]
