@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="login-form">
+    <h2>Redefinir senha</h2>
+    <br>
+    <form action="/reset" method="post">
+        <div class="form-group">
+            <input type="email" name="email" class="form-control" id="email-input" placeholder="Enter email"><br>
+            <button type="submit" class="btn btn-primary btn-block">Submeter</button><br>
+        </div>
+    </form>
+    {% if message %}
+        <p class="alert alert-success" role="alert">{{ message }}</p>
+    {% endif %}
+    {% if error %}
+        <p class="alert alert-danger" role="alert"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -2,17 +2,24 @@
 TITLE = 'Onix'
 SECRET_KEY = '22c3ba84-40d0-11eb-b378-0242ac130002'
 SQLALCHEMY_TRACK_MODIFICATIONS = false
+MAIL_SERVER = 'smtp.gmail.com'
+MAIL_PORT = 465
+MAIL_USE_TLS = false
+MAIL_USE_SSL = true
 MODULES = [
     'extensions.style:init_app',
     'extensions.database:init_app',
     'extensions.commands:init_app',
     'extensions.authentication:init_app',
+    'extensions.mail:init_app',
     'engine.models:',
     'engine.routes:init_app'
 ]
 
 [development]
-SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:1217@localhost/onix'
+SQLALCHEMY_DATABASE_URI = 'gAAAAABf6pBFWT5bGULKoGsnRoT8DafH7k_w7z5ZevNRpvE1iCjnX6p12tDrllsgDiPPm6q4FCsFXasQVMkQl0Ydi_Z9EWPscexN52uTt1Y-WUUPSrrmzQyOZGvwE0Bn81LwSgd2feZC'
+MAIL_USERNAME = 'gAAAAABf6pB3RuHVuARyDkSF7XQqiVW-UZBwTVJp6nn1uJBTm2w51O43cRPu9ryAUThmXLGCgQcZHLsxRiuSOcCbT59inFaPmir1BRwzsJfPUernaeCTq0A='
+MAIL_PASSWORD = 'gAAAAABf6pCZy8Spf_1LS7nNranq-T8XBX_7OqsmOH462VpUFFEB9BlBTu1w6tezOjtLlJzC9pfYAFLhoC0jLZi4ykvoyHocOA=='
 
 [testing]
 
