@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Onix Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap/bootstrap.min.css') }}">
+    <!-- Font-Awesome CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/fontawesome/all.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/baseGateway.css') }}">
+</head>
+
+<body class="text-center bg-dark">
+
+    <main class="principal-form">
+        <a href="/" class="mx-auto text-white text-decoration-none">
+            <img width="64" height="64" src="{{ url_for('static',filename='img/spinner.svg') }}" />
+        </a>
+
+        {% block content %}
+        {% endblock %}
+
+        <p class="mt-5 mb-3 text-muted">Onix Template @ Bruno Tatsuya</p>
+
+    </main>
+
+</body>
+<!-- jQuery JS -->
+<script src="{{ url_for('static',filename='js/jquery/jquery-3.2.1.min.js') }}"></script>
+<!-- Popper JS -->
+<script src="{{ url_for('static',filename='js/popper/popper.min.js') }}"></script>
+<!-- Bootstrap JS -->
+<script src="{{ url_for('static',filename='js/bootstrap/bootstrap.min.js') }}"></script>
+
+</html>

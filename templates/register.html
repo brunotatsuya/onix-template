@@ -1,0 +1,36 @@
+{% extends 'baseGateway.html' %}
+
+{% block content %}
+
+<h1 class="h4 mb-3 mt-3 fw-normal text-white">Sign up</h1>
+
+<div class="form-floating">
+    <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+    <label for="inputUsername">Username</label>
+</div>
+
+<div class="form-floating">
+    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+    <label for="inputEmail">Email</label>
+</div>
+
+<div class="form-floating">
+    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    <label for="inputPassword">Password</label>
+</div>
+
+<div class="form-floating">
+    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm password">
+    <label for="inputConfirmPassword">Confirm password</label>
+</div>
+
+<button id="buttonRegister" class="w-100 btn btn-lg btn-success btn-sm">Submit</button>
+
+<button id="buttonRegisterLoading" class="w-100 btn btn-lg btn-success btn-sm disabled" style="display:none">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+</button>
+
+<!-- Custom JS -->
+<script src="{{ url_for('static',filename='js/register.js') }}"></script>
+
+{% endblock %}

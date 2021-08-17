@@ -1,9 +1,11 @@
 from flask import Flask
-from extensions import configuration
+from config import inject_dependencies
 
 def create_app():
     app = Flask(__name__)
-    configuration.init_app(app)
-    configuration.load_credentials(app)
-    configuration.load_modules(app)
+    inject_dependencies(app)
     return app
+
+if __name__ == '__main__':
+    app = create_app()
+    app.run()

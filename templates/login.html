@@ -1,22 +1,31 @@
-{% extends 'base.html' %}
+{% extends 'baseGateway.html' %}
 
 {% block content %}
 
-<div class="login-form">
-    <h2>Fazer login</h2>
-    <br>
-    <form action="/login" method="post">
-        <div class="form-group">
-            <input type="email" name="email" class="form-control" id="email-input" placeholder="Enter email"><br>
-            <input type="password" name="password" class="form-control" id="password-input" placeholder="Enter password">
-            <small class="form-text text-muted"><a href="/reset">Esqueceu a senha?</a></small><br><br>
-            <button type="submit" class="btn btn-primary btn-block">Login</button><br>
-            <div class="btn btn-info btn-block" onclick="window.location.href='/register'">Criar conta</div>
-        </div>
-    </form>
-    {% if error %}
-        <p class="alert alert-danger" role="alert"><strong>Error:</strong> {{ error }}
-    {% endif %}
+<h1 class="h4 mb-3 mt-3 fw-normal text-white">Please login</h1>
+
+<div class="form-floating">
+    <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+    <label for="inputUsername">Username</label>
 </div>
+
+<div class="form-floating">
+    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Password">
+    <label for="inputConfirmPassword">Password</label>
+</div>
+
+<button id="buttonLogin" class="w-100 btn btn-lg btn-primary">Login</button>
+
+<button id="buttonLoginLoading" class="w-100 btn btn-lg btn-primary disabled" style="display:none">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+</button>
+
+<a id="buttonRegister" href="/register" class="w-100 btn btn-sm btn-info mt-2">Register</a>
+
+<p id="forgotPass" class="mt-3"><a class="text-decoration-none text-white" href="/">Forgot your
+        password?</a></p>
+
+<!-- Custom JS -->
+<script src="{{ url_for('static',filename='js/login.js') }}"></script>
 
 {% endblock %}

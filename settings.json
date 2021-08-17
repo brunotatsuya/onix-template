@@ -1,0 +1,13 @@
+{
+    "LOCAL_CONFIG": {
+        "SECRET_KEY": "SeU79mNHj89rJ5oqtBuGh_8NM-9SxuNSPnnEB2XV8UU="
+    },
+
+    "DEVELOPMENT_CONFIG": {
+        "SECRET_KEY": "SeU79mNHj89rJ5oqtBuGh_8NM-9SxuNSPnnEB2XV8UU="
+    },
+
+    "PRODUCTION_CONFIG": {
+        "SECRET_KEY": "SeU79mNHj89rJ5oqtBuGh_8NM-9SxuNSPnnEB2XV8UU="
+    }
+}
