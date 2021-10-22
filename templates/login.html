@@ -1,16 +1,25 @@
-{% extends 'baseGateway.html' %}
+{% extends 'baseAuth.html' %}
+
+{% block title %}Login{% endblock %}
 
 {% block content %}
 
 <h1 class="h4 mb-3 mt-3 fw-normal text-white">Please login</h1>
 
-<div class="form-floating">
-    <input type="text" class="form-control" id="inputUsername" placeholder="Username">
-    <label for="inputUsername">Username</label>
+<div id="messageFailedLogin" class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert" style="display:none !important">
+    <i class="fas fa-exclamation-circle"></i>
+    <span class="ms-2" id="textFailedLogin">
+        Login failed. Please, try again.
+    </span>
 </div>
 
 <div class="form-floating">
-    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Password">
+    <input type="text" class="form-control" id="inputLogin" required>
+    <label for="inputLogin">Username or email</label>
+</div>
+
+<div class="form-floating">
+    <input type="password" class="form-control" id="inputConfirmPassword" required>
     <label for="inputConfirmPassword">Password</label>
 </div>
 
@@ -22,7 +31,7 @@
 
 <a id="buttonRegister" href="/register" class="w-100 btn btn-sm btn-info mt-2">Register</a>
 
-<p id="forgotPass" class="mt-3"><a class="text-decoration-none text-white" href="/">Forgot your
+<p id="forgotPass" class="mt-3"><a class="text-decoration-none text-white" href="{{ url_for('reset_password') }}">Forgot your
         password?</a></p>
 
 <!-- Custom JS -->

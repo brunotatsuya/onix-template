@@ -12,13 +12,14 @@ window.onload = function () {
     });
 
     $('#buttonLogin').on('click', function () {
+
         $('#buttonLogin').toggle();
         $('#buttonLoginLoading').toggle();
         $.ajax({
             type: "POST",
             url: '/api/auth',
             data: {
-                username: $("#inputUsername").val(),
+                login: $("#inputLogin").val(),
                 password: $("#inputConfirmPassword").val()
             },
             dataType: 'json',
@@ -30,7 +31,7 @@ window.onload = function () {
             error: response => {
                 $('#buttonLogin').toggle();
                 $('#buttonLoginLoading').toggle();
-                alert('Falha ao logar: ' + response.responseJSON.message);
+                $('#messageFailedLogin').show();
             }
         });
     });

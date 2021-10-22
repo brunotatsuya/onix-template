@@ -4,7 +4,7 @@ import base64
 import json
 from cryptography.fernet import Fernet
 from datetime import datetime, timedelta
-from flask import jsonify, session, url_for, redirect
+from flask import jsonify, session, url_for, redirect, abort
 
 def inject_service(app):
 
@@ -74,9 +74,9 @@ def inject_service(app):
                 payload = self.validate_jwt(session['auth_token'])
             except:
                 return None
-            return payload['username']
+            return payload      
 
-        def authentication_required(self, redir=False):
+        def authentication_required(self, role=None, redir=False):
             def wrapper(route_function):
                 def decorated_function(*args, **kwargs):
                     if not self.is_authenticated():
@@ -84,8 +84,13 @@ def inject_service(app):
                             return redirect(url_for('login'))
                         else:
                             return jsonify({"message": "Authentication required", "status": 401}), 401
+                    elif role:
+                        if role not in self.get_authenticated_user()['roles']:
+                            if redir:
+                                abort(404, description="Not Found")
+                            else:
+                                return jsonify({"message": "Authorization required", "status": 403}), 403
                     return route_function(*args, **kwargs)
                 decorated_function.__name__ = route_function.__name__
                 return decorated_function
             return wrapper
-

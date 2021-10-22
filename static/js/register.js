@@ -26,7 +26,8 @@ window.onload = function () {
             error: response => {
                 $('#buttonRegister').toggle();
                 $('#buttonRegisterLoading').toggle();
-                alert('Falha ao registrar: ' + response.responseJSON.message);
+                $('#textFailedRegister').text(response.responseJSON.message);
+                $('#messageFailedRegister').show();
             }
         });
     });

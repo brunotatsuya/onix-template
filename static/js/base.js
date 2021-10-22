@@ -30,6 +30,17 @@ window.onload = function() {
         $("body").toggleClass("side-hidden");
     });
 
+    $.ajax({
+        type: "GET",
+        url: '/api/get_authenticated_user',
+        success: response => {
+            $('#username').text(response.username);
+        },
+        error: response => {
+            console.log(response.responseJSON.message);
+        }
+    });
+
     $('#logout').on('click', function () {
         $.ajax({
             type: "GET",

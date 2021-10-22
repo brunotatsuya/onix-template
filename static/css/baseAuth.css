@@ -37,6 +37,7 @@ body {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  margin-bottom: -1px;
 }
 
 .principal-form input[id="inputPassword"] {
@@ -44,6 +45,8 @@ body {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  margin-bottom: -1px;
+  margin-top: -1px;
 }
 
 .principal-form input[id="inputConfirmPassword"] {
