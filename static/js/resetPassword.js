@@ -10,7 +10,7 @@ window.onload = function () {
         $('#buttonSendEmailLoading').toggle();
         $.ajax({
             type: "POST",
-            url: '/api/password_reset',
+            url: '/api/request_password_reset',
             data: {
                 email: $("#inputEmail").val()
             },

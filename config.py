@@ -1,5 +1,4 @@
 import os
-import sys
 import json
 from importlib import import_module
 
@@ -29,16 +28,15 @@ def inject_configurations(app):
     SETTINGS = json.load(file_settings)
     file_settings.close()
     env = os.environ.get('FLASK_ENV')
+    CONFIG = SETTINGS['COMMON_CONFIG']
     if env == 'development':
-        print('Utilizando configurações de desenvolvimento')
-        CONFIG = SETTINGS['DEVELOPMENT_CONFIG']
+        CONFIG.update(SETTINGS['DEVELOPMENT_CONFIG'])
     elif env == 'production':
-        print('Utilizando configurações de produção')
-        CONFIG = SETTINGS['PRODUCTION_CONFIG']
+        CONFIG.update(SETTINGS['PRODUCTION_CONFIG'])
     else:
-        print('Utilizando configurações locais')
-        CONFIG = SETTINGS['LOCAL_CONFIG']
-    app.secret_key = CONFIG['SECRET_KEY']
+        CONFIG.update(SETTINGS['LOCAL_CONFIG'])
+    app.config_dict = CONFIG
+    app.secret_key = app.config_dict['SECRET_KEY']
 
 def inject_modules(app, package, common_function):
     dirname = os.path.dirname(__file__)

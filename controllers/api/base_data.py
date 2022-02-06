@@ -1,5 +1,4 @@
-import re
-from flask import request, jsonify, session
+from flask import jsonify
 
 def inject_controller(app):
 
